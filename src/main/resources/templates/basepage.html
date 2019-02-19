@@ -1,0 +1,23 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Tododo App.</title>
+</head>
+<body>
+	<h1>TODODO App!</h1>
+	<div>
+		<ul>
+			<li th:each="todoItem : ${todoItems}">
+				<span th:text="${todoItem.contents}">Data.</span> <a th:href="@{/delete(id=${todoItem.id})}">Delete</a>
+			</li>
+		</ul>
+		<label>Add new entry:</label>
+		<form action="/add" method="get">
+			<input type="text" name="contents"><input type="submit">
+		</form>
+	</div>
+	
+</body>
+</html>
